@@ -74,12 +74,12 @@ export function Navbar() {
               <li key={item.to}>
                 <Link
                   to={item.to}
-                  className="relative block px-4 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.2em] text-current/75 transition-colors hover:text-current"
+                  className="relative block px-2.5 py-2 text-[0.72rem] font-semibold uppercase tracking-[0.16em] text-current/75 transition-colors hover:text-current xl:px-4 xl:tracking-[0.2em]"
                   aria-current={isActive(item.to) ? 'page' : undefined}
                 >
                   {item.label}
                   {isActive(item.to) && (
-                    <motion.span layoutId="nav-active" className="absolute inset-x-4 -bottom-0.5 h-px bg-champagne" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />
+                    <motion.span layoutId="nav-active" className="absolute inset-x-2.5 -bottom-0.5 h-px bg-champagne xl:inset-x-4" transition={{ type: 'spring', stiffness: 380, damping: 32 }} />
                   )}
                 </Link>
               </li>

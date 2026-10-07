@@ -95,9 +95,9 @@ export function ContactMap() {
         <path d="M150 -10 L 175 260" stroke="rgba(255,255,255,0.14)" strokeWidth="6" />
         <path d="M300 -10 L 290 260" stroke="rgba(255,255,255,0.1)" strokeWidth="4" />
         <path d="M-10 60 L 410 40" stroke="rgba(255,255,255,0.08)" strokeWidth="3" />
-        <rect x="205" y="120" width="44" height="26" fill="none" stroke="#d4c2a2" strokeWidth="1.25" transform="rotate(-8 227 133)" />
-        <circle cx="227" cy="133" r="3.5" fill="#d4c2a2" />
-        <circle cx="227" cy="133" r="14" fill="none" stroke="#d4c2a2" strokeOpacity="0.4" />
+        <rect x="205" y="120" width="44" height="26" fill="none" stroke="#e0a077" strokeWidth="1.25" transform="rotate(-8 227 133)" />
+        <circle cx="227" cy="133" r="3.5" fill="#e0a077" />
+        <circle cx="227" cy="133" r="14" fill="none" stroke="#e0a077" strokeOpacity="0.4" />
         <text x="252" y="112" fill="rgba(255,255,255,0.4)" fontFamily="IBM Plex Mono, monospace" fontSize="7" letterSpacing="1.5">
           SARS ROAD
         </text>

@@ -28,6 +28,10 @@ Everything editable lives in `src/data/`. Components read from these files, so r
 
 Never commit the client's source PDFs or customer paperwork — `src/assets/*.pdf` is gitignored.
 
+## Palette
+
+Neutrals (ink / bone / brushed-aluminium greys) are unchanged. The single accent is **brand copper**, taken from the logo's rust and tan: `--color-champagne` (`#a64d1d`, accent on light sections, rules, dots, focus ring) and `--color-champagne-2` (`#e0a077`, accent text on dark sections). The token names are historical — "Champagne Gold" the aluminium *finish* is separate data in `data/content.ts`. Edit both in `src/index.css` to retune.
+
 ## Finishes → quote form
 
 The finishes section links to `/contact?frame=<option>&glass=<option>[&treatment=Anodized]#quote`. `QuoteForm` pre-selects the matching dropdowns, accepting only values from the option lists in `data/content.ts` (anything else is ignored).

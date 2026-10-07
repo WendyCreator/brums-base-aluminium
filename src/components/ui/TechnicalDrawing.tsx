@@ -3,7 +3,7 @@ import { motion, useReducedMotion } from 'framer-motion'
 export type DrawingKind = 'profile' | 'mitre' | 'corner'
 
 const STROKE = '#c9c7c1'
-const ACCENT = '#d4c2a2'
+const ACCENT = '#e0a077'
 
 const labels: Record<DrawingKind, string> = {
   profile: 'Fig. 01 — Profile section',

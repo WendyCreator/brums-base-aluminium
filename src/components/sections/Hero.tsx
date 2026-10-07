@@ -34,7 +34,7 @@ export function Hero() {
 
       <motion.div className="shell relative flex flex-1 flex-col justify-end pt-32 pb-28 sm:pb-32" style={reduced ? undefined : { y: contentY, opacity: contentOpacity }}>
         <FadeIn immediate delay={0.3} y={16}>
-          <p className="eyebrow flex items-center gap-3 text-alu">
+          <p className="eyebrow flex items-center gap-3 text-fog/90 [text-shadow:0_1px_14px_rgba(0,0,0,0.6)]">
             <span className="h-px w-8 bg-champagne" aria-hidden="true" />
             Aluminium &amp; Architectural Solutions
           </p>

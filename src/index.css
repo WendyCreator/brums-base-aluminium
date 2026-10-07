@@ -17,8 +17,13 @@
   --color-mute-2: #9a9892;
   --color-alu: #c9c7c1; /* brushed aluminium */
   --color-alu-2: #a8a7a2;
-  --color-champagne: #b59b72; /* restrained metallic accent */
-  --color-champagne-2: #d4c2a2;
+  /* Brand copper — drawn from the logo's rust (#984000) and tan hands (#c09060).
+     Token names kept from the earlier champagne accent so utilities didn't churn:
+     -champagne   = accent on light sections + rules/dots/focus (≥4.6:1 on bone)
+     -champagne-2 = accent text on dark sections (≈9:1 on ink)
+     ("Champagne Gold" the aluminium FINISH is separate data, untouched.) */
+  --color-champagne: #a64d1d;
+  --color-champagne-2: #e0a077;
 
   --font-sans: 'Manrope', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
@@ -50,7 +55,7 @@
   }
   ::selection {
     background: var(--color-champagne);
-    color: var(--color-ink);
+    color: var(--color-fog);
   }
   :focus-visible {
     outline: 2px solid var(--color-champagne);

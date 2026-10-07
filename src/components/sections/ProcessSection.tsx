@@ -55,7 +55,7 @@ function PinnedStep({ step, index, progress }: { step: ProcessStep; index: numbe
   const at = 0.12 + (index / (processSteps.length - 1)) * 0.78
   const opacity = useTransform(progress, [at - 0.1, at], [0.22, 1])
   const y = useTransform(progress, [at - 0.1, at], [24, 0])
-  const dot = useTransform(progress, [at - 0.02, at], ['rgba(255,255,255,0.18)', '#b59b72'])
+  const dot = useTransform(progress, [at - 0.02, at], ['rgba(255,255,255,0.18)', '#c0602a'])
 
   return (
     <motion.li style={{ opacity, y }}>
