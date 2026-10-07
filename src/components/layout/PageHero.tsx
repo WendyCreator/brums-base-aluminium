@@ -34,7 +34,7 @@ export function PageHero({ eyebrow, lines, intro, image, children }: Props) {
       )}
       <div className="shell relative pb-14 sm:pb-20">
         <FadeIn immediate delay={0.15} y={12}>
-          <p className="eyebrow flex items-center gap-3 text-alu">
+          <p className="eyebrow flex items-center gap-3 text-fog/90 [text-shadow:0_1px_14px_rgba(0,0,0,0.6)]">
             <span className="h-px w-8 bg-champagne" aria-hidden="true" />
             {eyebrow}
           </p>
