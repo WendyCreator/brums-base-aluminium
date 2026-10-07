@@ -18,7 +18,7 @@ export const solutions: Solution[] = [
     short: 'Slim sightlines, generous light.',
     description:
       'Casement, fixed and sliding window configurations fabricated to the measured opening, with frames kept slim so the glass does the work.',
-    applications: ['Casement', 'Fixed light', 'Sliding', 'Projected', 'Tilt and turn', 'Vertical sliding'],
+    applications: ['Casement', 'Fixed light', 'Sliding', 'Projected', 'Tilt and turn', 'Vertical sliding', 'Structural windows'],
     image: images.windows,
   },
   {
@@ -38,7 +38,7 @@ export const solutions: Solution[] = [
     short: 'Wide openings, quietly resolved.',
     description:
       'Large glass panels that open a room to the terrace, garden or balcony — and close it again in one smooth movement.',
-    applications: ['Patio doors', 'Bi-fold doors', 'Terrace access', 'Balcony access'],
+    applications: ['Glass pane patio doors', 'Bi-folding patio doors', 'Ghana sliding', 'Terrace access', 'Balcony access'],
     image: images.sliding,
   },
   {
@@ -58,7 +58,7 @@ export const solutions: Solution[] = [
     short: 'Light held in a precise frame.',
     description:
       'Aluminium and glass working together as one element, with tempered, plain and reflective glass available. Finishes are chosen per project.',
-    applications: ['Partition walls', 'Glass railings', 'Shower enclosures', 'Frameless glass doors'],
+    applications: ['Partition walls', 'Glass railings', 'Balcony glazing', 'Staircase glazing', 'Skylights', 'Frameless fixed glass', 'Shower enclosures', 'Frameless glass doors'],
     image: images.glass,
   },
   {
@@ -68,7 +68,7 @@ export const solutions: Solution[] = [
     short: 'Made for the opening in front of us.',
     description:
       'When a standard configuration does not fit, we work from the dimensions and intended use to fabricate a solution for that specific space.',
-    applications: ['Non-standard openings', 'Bespoke frames', 'Special details', 'Replacements'],
+    applications: ['Non-standard openings', 'Structural windows', 'Skylight frames', 'Bespoke frames'],
     image: images.fabrication,
   },
 ]
