@@ -1,10 +1,11 @@
 import { useEffect } from 'react'
+import { siteUrl } from '../data/company'
 
 const DEFAULT_TITLE = "Brum's Base Aluminium | Premium Aluminium Windows & Doors"
 const DEFAULT_DESCRIPTION =
-  'Premium aluminium windows, doors, sliding systems and architectural aluminium solutions for modern residential and commercial spaces in Nigeria.'
+  'Premium aluminium windows, doors, sliding door systems and architectural aluminium solutions for modern residential and commercial spaces in Nigeria.'
 
-const SITE_URL = ((import.meta.env.VITE_SITE_URL as string | undefined) || '').replace(/\/$/, '')
+const SITE_URL = siteUrl
 
 function setMeta(selector: string, attr: 'name' | 'property', key: string, content: string) {
   let el = document.head.querySelector<HTMLMetaElement>(selector)

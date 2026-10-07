@@ -27,3 +27,6 @@ dist-ssr
 .env
 .env.*
 !.env.example
+
+# Client files dropped for reference — not part of the site (large / contain a customer quotation)
+src/assets/*.pdf

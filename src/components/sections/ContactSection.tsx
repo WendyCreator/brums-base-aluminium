@@ -11,7 +11,7 @@ export function ContactDetails({ tone = 'light' }: { tone?: 'light' | 'dark' }) 
   const wa = whatsappLink()
   const mail = emailLink()
   if (company.phone && tel) rows.push({ label: 'Phone', value: company.phone, href: tel })
-  if (company.phone && wa) rows.push({ label: 'WhatsApp', value: company.phone, href: wa, external: true })
+  if (company.whatsappDisplay && wa) rows.push({ label: 'WhatsApp', value: company.whatsappDisplay, href: wa, external: true })
   if (company.email && mail) rows.push({ label: 'Email', value: company.email, href: mail })
   if (company.address)
     rows.push({ label: 'Workshop', value: `${company.address.line1}, ${company.address.line2}, ${company.address.city}`, href: mapsLink(), external: true })
@@ -28,10 +28,10 @@ export function ContactDetails({ tone = 'light' }: { tone?: 'light' | 'dark' }) 
             <a
               href={r.href}
               {...(r.external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-              className="group grid grid-cols-[6.5rem_1fr_auto] items-center gap-4 py-6 sm:grid-cols-[9rem_1fr_auto]"
+              className="group grid grid-cols-[5.5rem_minmax(0,1fr)_auto] items-center gap-3 py-6 sm:grid-cols-[9rem_minmax(0,1fr)_auto] sm:gap-4"
             >
               <span className={`eyebrow ${muted}`}>{r.label}</span>
-              <span className={`font-semibold tracking-tight ${r.value.length > 30 ? 'text-base leading-snug sm:text-lg' : 'text-lg sm:text-xl'}`}>{r.value}</span>
+              <span className={`font-semibold tracking-tight [overflow-wrap:anywhere] ${r.value.length > 30 ? 'text-base leading-snug sm:text-lg' : r.value.includes('@') ? 'text-[0.95rem] sm:text-xl' : 'text-lg sm:text-xl'}`}>{r.value}</span>
               <ArrowUpRight className="h-5 w-5 transition-transform duration-500 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </a>
           ) : (
@@ -42,7 +42,27 @@ export function ContactDetails({ tone = 'light' }: { tone?: 'light' | 'dark' }) 
           )}
         </FadeIn>
       ))}
+      <FadeIn as="li" delay={rows.length * 0.05} className={`border-b ${rule}`}>
+        <div className="grid grid-cols-[6.5rem_1fr] items-start gap-4 py-6 sm:grid-cols-[9rem_1fr]">
+          <span className={`eyebrow pt-1 ${muted}`}>Hours</span>
+          <WorkshopHours tone={tone} />
+        </div>
+      </FadeIn>
     </ul>
+  )
+}
+
+/** Workshop opening hours. Quiet by design — two short lines, not a feature. */
+export function WorkshopHours({ tone = 'dark', className = '' }: { tone?: 'light' | 'dark'; className?: string }) {
+  const { daysShort, time, sunday } = company.workshopHours
+  const muted = tone === 'light' ? 'text-mute' : 'text-mute-2'
+  return (
+    <dl className={`grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 text-sm font-medium tracking-tight sm:text-base ${className}`}>
+      <dt className={`font-mono text-[0.7rem] uppercase tracking-[0.18em] ${muted} self-center`}>{daysShort}</dt>
+      <dd>{time}</dd>
+      <dt className={`font-mono text-[0.7rem] uppercase tracking-[0.18em] ${muted} self-center`}>Sunday</dt>
+      <dd className={muted}>{sunday}</dd>
+    </dl>
   )
 }
 

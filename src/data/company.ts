@@ -6,19 +6,35 @@
 export const company = {
   name: "Brum's Base Aluminium",
   shortName: "Brum's Base",
+  /** Verified by the Brum's Base team */
+  founder: 'Mr Brume Edema',
   city: 'Port Harcourt',
   country: 'Nigeria',
   region: 'Rivers State',
 
-  /** Display format */
+  /** Calls. Display format */
   phone: '0702 657 6066' as string | null,
   /** Country code + number, digits only — used for tel: links */
   phoneIntl: '2347026576066' as string | null,
-  /** Country code + number, digits only — used for wa.me links */
-  whatsapp: '2347026576066' as string | null,
-  whatsappMessage: "Hello, I'd like to discuss an aluminium project with Brum's Base Aluminium.",
+  /** WhatsApp number supplied by the team (Oct 2026). Digits only — used for wa.me links */
+  whatsapp: '2349162624051' as string | null,
+  /** Display format. Shown sparingly — the UI prefers a "WhatsApp" label over the raw number. */
+  whatsappDisplay: '+234 916 262 4051' as string | null,
+  whatsappMessage: "Hello, I'd like to enquire about an aluminium project with Brum's Base Aluminium.",
 
-  email: null as string | null, // "[CLIENT EMAIL]"
+  /**
+   * Published on the back page of the company profile and approved for the site
+   * by Wendy (Oct 2026). Do not invent other addresses (hello@, info@) — set
+   * null to hide every email line in the UI.
+   */
+  email: 'brume.ed@brumsbase.com' as string | null,
+
+  workshopHours: {
+    days: 'Monday – Saturday',
+    daysShort: 'Mon – Sat',
+    time: '8:00 AM – 5:00 PM',
+    sunday: 'Closed',
+  },
 
   address: {
     line1: 'Mall Flora Plaza',
@@ -34,6 +50,9 @@ export const company = {
   /** Only add real, client-supplied profile links. */
   socials: [] as { label: string; href: string }[],
 }
+
+/** Real domain, no trailing slash — set VITE_SITE_URL at build time. Empty = no canonical/OG url tags. */
+export const siteUrl = ((import.meta.env.VITE_SITE_URL as string | undefined) || '').replace(/\/$/, '')
 
 export const formEndpoint = (import.meta.env.VITE_FORM_ENDPOINT as string | undefined) || null
 

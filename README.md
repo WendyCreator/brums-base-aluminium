@@ -15,14 +15,26 @@ Everything editable lives in `src/data/`. Components read from these files, so r
 
 | File | What it holds | Status |
 | --- | --- | --- |
-| `company.ts` | Phone, WhatsApp, email, address, socials, verified stats | Phone + workshop address taken from the client's existing site. **Email, socials, founding year and project count are empty — the UI hides them until filled.** |
+| `company.ts` | Phone, WhatsApp, founder, workshop hours, email, address, socials, verified stats | Founder, WhatsApp (+234 916 262 4051) and hours confirmed by the team (Oct 2026); phone + workshop address from the client's existing site. **Email, socials, founding year and project count are empty — the UI hides them until filled.** |
 | `images.ts` | Every photo on the site (one registry) | **All stock (Unsplash) placeholders.** Swap for real project photography here. Accepts `unsplash:<id>` or any URL / imported local file. |
 | `projects.ts` | Portfolio entries | **Descriptive placeholders, not real projects.** Replace each entry and set `representative: false`; the "imagery is representative" note disappears once none are flagged. |
 | `solutions.ts` | The six solution families | Copy is general; review with the client. |
 | `testimonials.ts` | Client quotes | Empty → section hidden. Add only real, permitted quotes. |
-| `content.ts` | Before/after pairs, finishes, process steps, nav | Before/after empty → section hidden. **Confirm which finishes the client actually offers** and delete the rest. |
+| `content.ts` | Before/after pairs, aluminium + glass finishes, glass types, process steps, nav, quote terms, form options | Finishes and glass types confirmed by the team (Oct 2026). Before/after empty → section hidden. |
 
-The logo is a text wordmark (`src/components/layout/Logo.tsx`) because no logo file was available. Replace it with the real mark when supplied.
+## Brand assets
+
+`src/assets/brand/` holds the real logo (`logo-mark.png`, `logo-full.png`, recovered from the client's company profile — only ~270px wide, so swap in a vector/high-res original when the client has one) and the team photo (`team.jpg`, the only real photograph so far). The nav uses the mark on a cream disc beside a typeset wordmark (`Logo.tsx`); favicon, apple-touch icon and `public/og.jpg` were generated from the same logo.
+
+Never commit the client's source PDFs or customer paperwork — `src/assets/*.pdf` is gitignored.
+
+## Finishes → quote form
+
+The finishes section links to `/contact?frame=<option>&glass=<option>[&treatment=Anodized]#quote`. `QuoteForm` pre-selects the matching dropdowns, accepting only values from the option lists in `data/content.ts` (anything else is ignored).
+
+## Structured data
+
+`useBusinessSchema` injects schema.org LocalBusiness JSON-LD (address, hours, phone, email, founder) from `data/company.ts`. `url` and `logo` are added only when `VITE_SITE_URL` is set.
 
 ## Quote form
 

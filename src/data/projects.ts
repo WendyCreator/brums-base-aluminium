@@ -42,7 +42,7 @@ export const projects: Project[] = [
     title: 'Garden Pavilion',
     location: 'Port Harcourt',
     category: 'Residential',
-    scope: ['Multi-track sliding doors', 'Fixed glazing'],
+    scope: ['Sliding door systems', 'Fixed glazing'],
     summary: 'A ground floor that opens completely onto the lawn.',
     description: [
       'A living space that becomes part of the garden. Multi-track sliding panels stack to one side, leaving the opening almost entirely clear.',

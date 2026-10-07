@@ -17,8 +17,8 @@ export function ProcessSection() {
 }
 
 const Heading = () => (
-  <SectionHeading index="05" eyebrow="Our process" lines={['From profile', 'to project.']}>
-    Five stages, one standard. Every opening moves through the same sequence, from the first measurement to the final fit.
+  <SectionHeading index="06" eyebrow="Our process" lines={['From profile', 'to project.']}>
+    Five stages, one standard. Every opening moves through the same sequence, from the free site measurement to the final fit.
   </SectionHeading>
 )
 

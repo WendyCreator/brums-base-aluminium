@@ -7,6 +7,7 @@ import { Navbar } from './components/layout/Navbar'
 import { PageTransition } from './components/layout/PageTransition'
 import { ScrollManager } from './components/layout/ScrollManager'
 import { WhatsAppButton } from './components/layout/WhatsAppButton'
+import { useBusinessSchema } from './hooks/useBusinessSchema'
 import { scrollToHash } from './lib/scroll'
 import Home from './pages/Home'
 
@@ -19,6 +20,7 @@ const NotFound = lazy(() => import('./pages/NotFound'))
 
 export default function App() {
   const location = useLocation()
+  useBusinessSchema()
 
   return (
     <MotionConfig reducedMotion="user">

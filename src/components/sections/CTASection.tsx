@@ -1,8 +1,9 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { whatsappLink } from '../../data/company'
+import { company, whatsappLink } from '../../data/company'
 import { images } from '../../data/images'
 import { Button } from '../ui/Button'
+import { WorkshopHours } from './ContactSection'
 import { Img } from '../ui/Img'
 import { WhatsAppIcon } from '../ui/Icons'
 import { FadeIn, RevealLines } from '../ui/Reveal'
@@ -31,7 +32,7 @@ export function CTASection() {
         <RevealLines lines={["Let's build", 'something', 'beautiful.']} className="display-xl mt-6" stagger={0.1} />
         <div className="mt-10 flex flex-col gap-8 xl:flex-row xl:items-end xl:justify-between">
           <FadeIn delay={0.2} className="lede max-w-sm text-fog/80">
-            <p>Have a project in mind? Tell us what you&rsquo;re working on.</p>
+            <p>Have a project in mind? Tell us what you&rsquo;re working on. Site measurements are free.</p>
           </FadeIn>
           <FadeIn delay={0.3} className="flex flex-col gap-3 sm:flex-row">
             <Button to="/contact#quote" variant="light" magnetic>
@@ -44,6 +45,17 @@ export function CTASection() {
             )}
           </FadeIn>
         </div>
+
+        {/* Workshop — quiet, secondary */}
+        <FadeIn delay={0.4} className="mt-16 grid gap-6 border-t rule-dark pt-8 sm:grid-cols-[auto_1fr] sm:items-start sm:gap-12">
+          <div>
+            <p className="eyebrow text-alu">Visit our workshop</p>
+            <p className="mt-3 text-sm font-semibold uppercase tracking-[0.1em]">
+              {company.city}, {company.country}
+            </p>
+          </div>
+          <WorkshopHours className="text-fog/90" />
+        </FadeIn>
       </div>
     </section>
   )

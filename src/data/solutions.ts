@@ -18,7 +18,7 @@ export const solutions: Solution[] = [
     short: 'Slim sightlines, generous light.',
     description:
       'Casement, fixed and sliding window configurations fabricated to the measured opening, with frames kept slim so the glass does the work.',
-    applications: ['Casement', 'Fixed lights', 'Sliding windows', 'Projected'],
+    applications: ['Casement', 'Fixed light', 'Sliding', 'Projected', 'Tilt and turn', 'Vertical sliding'],
     image: images.windows,
   },
   {
@@ -27,8 +27,8 @@ export const solutions: Solution[] = [
     title: 'Aluminium Doors',
     short: 'A strong first threshold.',
     description:
-      'Entrance, hinged and french door systems that pair a solid, secure frame with clean architectural detailing.',
-    applications: ['Entrance doors', 'Hinged doors', 'French doors', 'Glazed partitions'],
+      'Entrance, hinged and frameless door systems that pair a solid frame with clean architectural detailing.',
+    applications: ['Entrance doors', 'Single & double hinged', 'Frameless doors', 'Swing doors'],
     image: images.doors,
   },
   {
@@ -37,8 +37,8 @@ export const solutions: Solution[] = [
     title: 'Sliding Door Systems',
     short: 'Wide openings, quietly resolved.',
     description:
-      'Large glass panels on precision tracks that open a room to the terrace, garden or balcony — and close it again in one smooth movement.',
-    applications: ['Two-panel', 'Multi-track', 'Stacking', 'Balcony access'],
+      'Large glass panels that open a room to the terrace, garden or balcony — and close it again in one smooth movement.',
+    applications: ['Patio doors', 'Bi-fold doors', 'Terrace access', 'Balcony access'],
     image: images.sliding,
   },
   {
@@ -48,7 +48,7 @@ export const solutions: Solution[] = [
     short: 'Facades built in line.',
     description:
       'Aluminium-framed glazed facades for commercial and multi-storey buildings, set out to a clear grid and rhythm.',
-    applications: ['Glazed facades', 'Shopfronts', 'Stairwells', 'Atria'],
+    applications: ['Glazed facades', 'Multi-storey buildings', 'Commercial buildings', 'Hotels & offices'],
     image: images.curtainWall,
   },
   {
@@ -57,8 +57,8 @@ export const solutions: Solution[] = [
     title: 'Glass & Aluminium',
     short: 'Light held in a precise frame.',
     description:
-      'Partitions, balustrades, canopies and glazed screens where aluminium and glass work together as one architectural element.',
-    applications: ['Partitions', 'Balustrades', 'Canopies', 'Screens'],
+      'Aluminium and glass working together as one element, with tempered, plain and reflective glass available. Finishes are chosen per project.',
+    applications: ['Partition walls', 'Glass railings', 'Shower enclosures', 'Frameless glass doors'],
     image: images.glass,
   },
   {

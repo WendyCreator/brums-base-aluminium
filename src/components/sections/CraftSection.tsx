@@ -33,7 +33,7 @@ export function CraftSection() {
   return (
     <section id="craft" className="bg-ink py-24 text-fog sm:py-32 lg:py-40">
       <div className="shell">
-        <SectionHeading index="08" eyebrow="Craftsmanship" lines={['Built with', 'purpose.']}>
+        <SectionHeading index="09" eyebrow="Craftsmanship" lines={['Built with', 'purpose.']}>
           The quality of an opening begins before installation — in how each profile is chosen, cut, prepared and assembled.
         </SectionHeading>
 

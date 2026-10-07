@@ -24,7 +24,7 @@ export function ProjectsSection() {
   return (
     <section data-nav-tone="light" id="projects" className="scroll-mt-20 bg-bone text-ink">
       <div className="shell pt-24 sm:pt-32 lg:pt-40">
-        <SectionHeading index="04" eyebrow="Selected projects" lines={['A look at', 'what we build.']} tone="light">
+        <SectionHeading index="05" eyebrow="Selected projects" lines={['A look at', 'what we build.']} tone="light">
           Residential, commercial and renovation work — from single openings to complete facades.
         </SectionHeading>
       </div>

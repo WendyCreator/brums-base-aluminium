@@ -12,12 +12,12 @@ export function WhyUsSection() {
       <div className="shell grid gap-14 lg:grid-cols-12 lg:gap-8">
         <div className="lg:col-span-5">
           <div className="lg:sticky lg:top-32">
-            <Eyebrow index="06" tone="light">
+            <Eyebrow index="08" tone="light">
               Why us
             </Eyebrow>
             <RevealLines lines={['Why', 'Brum’s Base.']} className="display-lg mt-6" />
             <p className="mt-8 max-w-sm text-[0.95rem] leading-relaxed text-ink/60">
-              Quality aluminium alloy windows and doors, measured with care and fabricated to meet the space in front of them.
+              Aluminium and glass from one Port Harcourt workshop — measured on site at no charge and quoted for your project.
             </p>
           </div>
         </div>

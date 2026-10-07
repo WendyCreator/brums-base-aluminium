@@ -5,7 +5,7 @@ import { FadeIn } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
 
 const qualities = [
-  { title: 'Smooth', body: 'Panels glide on precision tracks with a light, even movement.' },
+  { title: 'Smooth', body: 'Panels slide open and closed in one easy movement.' },
   { title: 'Precise', body: 'Frames are fabricated to the measured opening, not a standard size.' },
   { title: 'Seamless', body: 'Closed, the glass reads as one line. Open, the room meets the outdoors.' },
 ]
@@ -20,15 +20,15 @@ type Props = {
 /** Signature section: an interactive aluminium sliding door the visitor can open. */
 export function SlidingDoorExperience({
   id = 'sliding-experience',
-  index = '01',
+  index = '02',
   view = images.terrace,
-  cta = { label: 'Discover sliding systems', to: '/solutions#sliding-systems' },
+  cta = { label: 'Explore sliding door systems', to: '/solutions#sliding-systems' },
 }: Props) {
   return (
     <section id={id} data-nav-tone="dark" className="relative scroll-mt-20 bg-ink py-24 text-fog sm:py-32 lg:py-40">
       <div className="shell">
-        <SectionHeading index={index} eyebrow="Aluminium sliding systems" lines={['Open up', 'your space.']}>
-          Designed to connect interiors with the world outside while maintaining clean architectural lines. Drag the door, use the slider, or tap to open.
+        <SectionHeading index={index} eyebrow="Sliding Door Systems" lines={['Open up', 'your space.']}>
+          Create a seamless connection between your interior and exterior spaces with aluminium sliding door systems designed around your project. Drag the door, use the slider, or tap to open.
         </SectionHeading>
 
         <FadeIn className="mt-14 sm:mt-20" y={40}>

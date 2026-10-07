@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
+import logoSrc from '../../assets/brand/logo-full.png'
 import { company, emailLink, mapsLink, telLink, whatsappLink } from '../../data/company'
 import { footerSolutions, mainNav } from '../../data/content'
+import { WorkshopHours } from '../sections/ContactSection'
 import { ArrowUpRight } from '../ui/Icons'
 
 export function Footer() {
@@ -14,6 +16,12 @@ export function Footer() {
       <div className="shell">
         <div className="grid gap-14 border-b rule-dark pb-16 md:grid-cols-2 lg:grid-cols-12">
           <div className="lg:col-span-5">
+            <div className="mb-8 flex items-center gap-5">
+              <span className="flex h-24 w-24 shrink-0 items-center justify-center rounded-full bg-[#f2f0ea]">
+                <img src={logoSrc} alt="Brum's Base Aluminium logo" width={267} height={236} className="h-auto w-[76%]" />
+              </span>
+              <p className="max-w-[11rem] font-mono text-[0.68rem] uppercase leading-relaxed tracking-[0.2em] text-alu">Quality is everyone&rsquo;s responsibility</p>
+            </div>
             <p className="eyebrow text-alu">Port Harcourt, Nigeria</p>
             <p className="mt-6 max-w-sm text-2xl font-semibold leading-snug tracking-tight text-fog sm:text-3xl">
               Aluminium windows, doors and architectural systems for modern spaces.
@@ -60,7 +68,7 @@ export function Footer() {
             )}
             {mail && (
               <li>
-                <a href={mail} className="link-line">
+                <a href={mail} className="link-line normal-case tracking-normal">
                   {company.email}
                 </a>
               </li>
@@ -76,6 +84,9 @@ export function Footer() {
                 </a>
               </li>
             )}
+            <li className="normal-case tracking-normal">
+              <WorkshopHours className="text-alu" />
+            </li>
             {company.socials.map((s) => (
               <li key={s.href}>
                 <a href={s.href} target="_blank" rel="noopener noreferrer" className="link-line">

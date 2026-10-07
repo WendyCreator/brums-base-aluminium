@@ -1,10 +1,10 @@
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import { AboutSection } from '../components/sections/AboutSection'
 import { BeforeAfterSection } from '../components/sections/BeforeAfter'
-import { CraftSection } from '../components/sections/CraftSection'
 import { CTASection } from '../components/sections/CTASection'
 import { Hero } from '../components/sections/Hero'
 import { MaterialsSection } from '../components/sections/MaterialsSection'
+import { MeasureSection } from '../components/sections/MeasureSection'
 import { ProcessSection } from '../components/sections/ProcessSection'
 import { ProjectsSection } from '../components/sections/ProjectsSection'
 import { SlidingDoorExperience } from '../components/sections/SlidingDoorExperience'
@@ -17,14 +17,14 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <SlidingDoorExperience />
       <AboutSection />
+      <SlidingDoorExperience />
       <SolutionsSection />
+      <MaterialsSection />
       <ProjectsSection />
       <ProcessSection />
+      <MeasureSection />
       <WhyUsSection />
-      <MaterialsSection />
-      <CraftSection />
       <BeforeAfterSection />
       <TestimonialsSection />
       <CTASection />

@@ -8,6 +8,8 @@
  *   import frontDoor from '../assets/images/front-door.jpg'
  *   doors: { src: frontDoor, alt: '...' }
  */
+import teamPhoto from '../assets/brand/team.jpg'
+
 export type SiteImage = {
   src: string
   alt: string
@@ -18,6 +20,8 @@ export type SiteImage = {
 const u = (id: string, alt: string, focus?: string): SiteImage => ({ src: `unsplash:${id}`, alt, focus })
 
 export const images = {
+  /** REAL photo — from the company profile (Oct 2026). Everything else here is stock. */
+  team: { src: teamPhoto, alt: "The Brum's Base team in branded hard hats and high-visibility vests in front of the company sign", focus: '50% 30%' } satisfies SiteImage,
   hero: u('1600585154340-be6161a56a0c', 'Contemporary house at dusk with floor-to-ceiling glazing glowing from within', '50% 55%'),
   terrace: u('1512917774080-9991f1c4c750', 'Sunlit terrace and pool beyond a wide glazed opening', '50% 60%'),
   terraceAlt: u('1602343168117-bb8ffe3e2e9f', 'Pool terrace in front of a two-storey house with large glazed openings', '50% 50%'),

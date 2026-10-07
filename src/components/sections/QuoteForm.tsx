@@ -1,7 +1,8 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useId, useState, type FormEvent, type ReactNode } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { company, formEndpoint, whatsappLink } from '../../data/company'
-import { interestOptions, projectTypes } from '../../data/content'
+import { frameFinishOptions, glassFinishOptions, interestOptions, projectTypes } from '../../data/content'
 import { Button } from '../ui/Button'
 import { WhatsAppIcon } from '../ui/Icons'
 
@@ -12,19 +13,36 @@ type FormState = {
   location: string
   projectType: string
   interests: string[]
+  frameFinish: string
+  glassFinish: string
+  siteMeasurement: boolean
   description: string
 }
 
-const empty: FormState = { name: '', phone: '', email: '', location: '', projectType: '', interests: [], description: '' }
+const empty: FormState = { name: '', phone: '', email: '', location: '', projectType: '', interests: [], frameFinish: '', glassFinish: '', siteMeasurement: false, description: '' }
 
 type Status = 'idle' | 'sending' | 'sent' | 'handed-off' | 'error'
+
+/** Pre-select finishes chosen in the finishes section (?frame=…&glass=…&treatment=…). Only known option values are accepted. */
+function fromSearch(params: URLSearchParams): FormState {
+  const frame = params.get('frame') ?? ''
+  const glass = params.get('glass') ?? ''
+  const frameFinish = (frameFinishOptions as readonly string[]).includes(frame) ? frame : ''
+  const glassFinish = (glassFinishOptions as readonly string[]).includes(glass) ? glass : ''
+  // The frame list doesn't distinguish anodized from powder-coated Bronze/Black — keep that detail.
+  const description = frameFinish && params.get('treatment') === 'Anodized' ? `Frame finish: Anodized ${frameFinish}.` : ''
+  return { ...empty, frameFinish, glassFinish, description }
+}
 
 function buildMessage(f: FormState) {
   const lines = [`Hello ${company.name}, I'd like to request a quote.`, '', `Name: ${f.name}`, `Phone: ${f.phone}`]
   if (f.email) lines.push(`Email: ${f.email}`)
   if (f.location) lines.push(`Project location: ${f.location}`)
   if (f.projectType) lines.push(`Project type: ${f.projectType}`)
-  if (f.interests.length > 0) lines.push(`Interested in: ${f.interests.join(', ')}`)
+  if (f.interests.length > 0) lines.push(`Service required: ${f.interests.join(', ')}`)
+  if (f.frameFinish) lines.push(`Preferred frame finish: ${f.frameFinish}`)
+  if (f.glassFinish) lines.push(`Preferred glass finish: ${f.glassFinish}`)
+  if (f.siteMeasurement) lines.push('I would like to book a free site measurement.')
   if (f.description.trim()) lines.push('', `Project details: ${f.description.trim()}`)
   return lines.join('\n')
 }
@@ -36,7 +54,8 @@ function buildMessage(f: FormState) {
  *   enquiry pre-written so the visitor sends it themselves.
  */
 export function QuoteForm() {
-  const [form, setForm] = useState<FormState>(empty)
+  const [params] = useSearchParams()
+  const [form, setForm] = useState<FormState>(() => fromSearch(params))
   const [errors, setErrors] = useState<Partial<Record<keyof FormState, string>>>({})
   const [status, setStatus] = useState<Status>('idle')
   const canHandOff = !formEndpoint && Boolean(company.whatsapp)
@@ -69,7 +88,7 @@ export function QuoteForm() {
         const res = await fetch(formEndpoint, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-          body: JSON.stringify({ ...form, interests: form.interests.join(', '), _subject: `Quote request — ${form.name}` }),
+          body: JSON.stringify({ ...form, interests: form.interests.join(', '), siteMeasurement: form.siteMeasurement ? 'Yes' : 'No', _subject: `Quote request — ${form.name}` }),
         })
         if (!res.ok) throw new Error(String(res.status))
         setStatus('sent')
@@ -122,7 +141,7 @@ export function QuoteForm() {
         ))}
       </ChipGroup>
 
-      <ChipGroup legend="What are you interested in?" hint="Select all that apply" className="sm:col-span-2">
+      <ChipGroup legend="Service required" hint="Select all that apply" className="sm:col-span-2">
         {interestOptions.map((opt) => (
           <Chip
             key={opt}
@@ -134,6 +153,35 @@ export function QuoteForm() {
           />
         ))}
       </ChipGroup>
+
+      <Field label="Preferred frame finish">
+        {(id) => (
+          <select id={id} value={form.frameFinish} onChange={(e) => set('frameFinish', e.target.value)} className={selectClass}>
+            <option value="">Select a finish</option>
+            {frameFinishOptions.map((o) => (
+              <option key={o} value={o}>
+                {o}
+              </option>
+            ))}
+          </select>
+        )}
+      </Field>
+      <Field label="Preferred glass finish">
+        {(id) => (
+          <select id={id} value={form.glassFinish} onChange={(e) => set('glassFinish', e.target.value)} className={selectClass}>
+            <option value="">Select a finish</option>
+            {glassFinishOptions.map((o) => (
+              <option key={o} value={o}>
+                {o}
+              </option>
+            ))}
+          </select>
+        )}
+      </Field>
+
+      <div className="sm:col-span-2">
+        <Chip type="checkbox" name="siteMeasurement" label="Book a free site measurement" checked={form.siteMeasurement} onChange={() => set('siteMeasurement', !form.siteMeasurement)} />
+      </div>
 
       <Field label="Project description" className="sm:col-span-2">
         {(id) => (
@@ -155,7 +203,7 @@ export function QuoteForm() {
             : 'We use your details only to respond to this enquiry.'}
         </p>
         <Button type="submit" variant="dark" disabled={status === 'sending'}>
-          {status === 'sending' ? 'Sending…' : 'Send project request'}
+          {status === 'sending' ? 'Sending…' : 'Request my quote'}
         </Button>
       </div>
 
@@ -180,13 +228,16 @@ export function QuoteForm() {
         )}
         {status === 'error' && (
           <motion.p role="alert" initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-sm text-[#a33a2a] sm:col-span-2">
-            Something went wrong sending your request.{company.phone ? ` Please call or WhatsApp us on ${company.phone}.` : ' Please try again.'}
+            Something went wrong sending your request.{company.phone ? ` Please call us on ${company.phone} or message us on WhatsApp.` : ' Please try again.'}
           </motion.p>
         )}
       </AnimatePresence>
     </form>
   )
 }
+
+const selectClass =
+  'block w-full rounded-none border-0 border-b border-ink/25 bg-transparent px-0 py-3 text-base text-ink transition-colors focus:border-ink focus:outline-none focus:ring-0'
 
 const inputClass =
   'block w-full border-0 border-b border-ink/25 bg-transparent px-0 py-3 text-base text-ink placeholder:text-ink/35 transition-colors focus:border-ink focus:outline-none focus:ring-0 aria-[invalid=true]:border-[#a33a2a]'

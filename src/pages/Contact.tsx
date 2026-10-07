@@ -1,6 +1,7 @@
 import { PageHero } from '../components/layout/PageHero'
 import { ContactDetails, ContactMap } from '../components/sections/ContactSection'
 import { QuoteForm } from '../components/sections/QuoteForm'
+import { quoteTerms } from '../data/content'
 import { FadeIn, RevealLines } from '../components/ui/Reveal'
 import { Eyebrow } from '../components/ui/SectionHeading'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
@@ -8,13 +9,13 @@ import { useDocumentMeta } from '../hooks/useDocumentMeta'
 export default function Contact() {
   useDocumentMeta({
     title: 'Contact & Quote',
-    description: "Request a quote for aluminium windows, doors, sliding systems or glazing from Brum's Base Aluminium in Port Harcourt.",
+    description: "Request a quote for aluminium windows, doors, sliding door systems or glazing from Brum's Base Aluminium in Port Harcourt.",
     path: '/contact',
   })
 
   return (
     <>
-      <PageHero eyebrow="Contact" lines={["Let's talk", 'about your', 'project.']} intro="Call, message on WhatsApp, or send your project details below. We'll help you define the right aluminium system for the opening." />
+      <PageHero eyebrow="Contact" lines={["Let's talk", 'about your', 'project.']} intro="Call, message on WhatsApp, or send your project details below. Site measurements are free, and every project is quoted individually." />
 
       <section className="bg-ink pb-24 text-fog sm:pb-32">
         <div className="shell grid gap-12 lg:grid-cols-12">
@@ -34,10 +35,18 @@ export default function Contact() {
               <Eyebrow index="→" tone="light">
                 Request a quote
               </Eyebrow>
-              <RevealLines lines={["We'll frame", 'the solution.']} className="display-md mt-6" />
+              <RevealLines lines={['Get a', 'project quote.']} className="display-md mt-6" />
               <FadeIn className="mt-6 max-w-sm leading-relaxed text-ink/65">
-                <p>Share a few practical details about your project. Approximate is fine — we&rsquo;ll confirm measurements on site.</p>
+                <p>Tell us about your project and we&rsquo;ll help you determine the right aluminium and glass solution. Approximate is fine — we&rsquo;ll confirm measurements on site.</p>
               </FadeIn>
+              <ul className="mt-10 max-w-sm border-t rule-light">
+                {quoteTerms.map((t) => (
+                  <FadeIn as="li" key={t.title} className="border-b rule-light py-5">
+                    <p className="eyebrow text-ink">{t.title}</p>
+                    <p className="mt-2 text-[0.88rem] leading-relaxed text-ink/60">{t.body}</p>
+                  </FadeIn>
+                ))}
+              </ul>
             </div>
           </div>
           <div className="lg:col-span-7">
