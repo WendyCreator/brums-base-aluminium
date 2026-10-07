@@ -20,7 +20,7 @@ export function ProjectCard({ project, index, className = '', aspect = 'aspect-[
           <Img image={project.cover} sizes={sizes} />
         </div>
         <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_50%,rgba(11,11,11,0.75))] opacity-80 transition-opacity duration-700 group-hover:opacity-100" />
-        <span className="absolute top-5 left-5 rounded-full border border-white/25 bg-ink/30 px-3 py-1.5 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-fog backdrop-blur-sm">
+        <span className="absolute top-5 left-5 rounded-full border border-white/25 bg-ink/30 px-3 py-1.5 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-fog backdrop-blur-sm">
           {project.category}
         </span>
         <p className="absolute inset-x-5 bottom-5 max-w-sm translate-y-3 text-sm leading-relaxed text-fog/85 opacity-100 transition-all duration-700 ease-[var(--ease-out-expo)] [@media(hover:hover)]:opacity-0 [@media(hover:hover)]:group-hover:translate-y-0 [@media(hover:hover)]:group-hover:opacity-100">

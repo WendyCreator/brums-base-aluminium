@@ -67,7 +67,7 @@ export function Hero() {
       {/* Bottom metadata bar */}
       <div className="shell absolute inset-x-0 bottom-0 left-1/2 -translate-x-1/2">
         <motion.div
-          className="flex items-center justify-between border-t border-white/15 py-5 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-alu"
+          className="flex items-center justify-between border-t border-white/15 py-5 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-alu"
           initial={reduced ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.6, duration: 1 }}

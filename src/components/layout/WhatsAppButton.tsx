@@ -22,10 +22,10 @@ export function WhatsAppButton() {
       <span className="flex h-12 w-12 shrink-0 items-center justify-center text-[#6fd39a]">
         <WhatsAppIcon className="h-5 w-5" />
       </span>
-      <span className="eyebrow grid grid-cols-[0fr] text-[0.65rem] transition-[grid-template-columns] duration-500 group-hover:grid-cols-[1fr] group-focus-visible:grid-cols-[1fr]">
+      <span className="eyebrow grid grid-cols-[0fr] text-[0.7rem] transition-[grid-template-columns] duration-500 group-hover:grid-cols-[1fr] group-focus-visible:grid-cols-[1fr]">
         <span className="overflow-hidden leading-tight whitespace-nowrap">
           <span className="block">Chat on WhatsApp</span>
-          <span className="mt-0.5 block text-[0.58rem] text-alu">Discuss your project →</span>
+          <span className="mt-0.5 block text-[0.65rem] text-alu">Discuss your project →</span>
         </span>
       </span>
     </motion.a>

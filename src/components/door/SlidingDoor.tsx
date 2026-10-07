@@ -291,7 +291,7 @@ function Panel({ left, depth, x, handle, hint }: { left: number; depth: number; 
           <AnimatePresence>
             {hint && (
               <motion.span
-                className="eyebrow absolute left-4 top-1/2 hidden -translate-y-1/2 whitespace-nowrap border border-white/25 bg-black/40 px-3 py-2 text-[0.62rem] text-white/80 backdrop-blur-sm sm:block"
+                className="eyebrow absolute left-4 top-1/2 hidden -translate-y-1/2 whitespace-nowrap border border-white/25 bg-black/40 px-3 py-2 text-[0.68rem] text-white/80 backdrop-blur-sm sm:block"
                 initial={{ opacity: 0, x: -6 }}
                 animate={{ opacity: 1, x: 0, transition: { delay: 1.2, duration: 0.6 } }}
                 exit={{ opacity: 0, transition: { duration: 0.25 } }}

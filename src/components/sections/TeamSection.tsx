@@ -14,7 +14,7 @@ export function TeamSection() {
 
         <FadeIn className="mt-14 sm:mt-20" y={30}>
           <ImageReveal image={images.team} className="aspect-[4/3] sm:aspect-[16/8] lg:aspect-[21/9]" sizes="(min-width: 1400px) 1300px, 100vw" parallax={4} />
-          <p className="mt-5 font-mono text-[0.68rem] uppercase tracking-[0.22em] text-mute-2">The Brum&rsquo;s Base team</p>
+          <p className="mt-5 font-mono text-[0.7rem] uppercase tracking-[0.22em] text-mute-2">The Brum&rsquo;s Base team</p>
         </FadeIn>
       </div>
     </section>

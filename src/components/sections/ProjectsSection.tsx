@@ -9,7 +9,7 @@ import { ProjectCard } from './ProjectCard'
 
 export function RepresentativeNote({ className = '' }: { className?: string }) {
   if (!hasRepresentativeProjects) return null
-  return <p className={`font-mono text-[0.68rem] uppercase tracking-[0.18em] text-mute-2 ${className}`}>Imagery shown is representative · Project photography to follow</p>
+  return <p className={`font-mono text-[0.7rem] uppercase tracking-[0.18em] text-mute-2 ${className}`}>Imagery shown is representative · Project photography to follow</p>
 }
 
 /**

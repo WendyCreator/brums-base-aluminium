@@ -94,7 +94,7 @@ export function CustomCursor() {
           {state.mode === 'label' && (
             <motion.span
               key={state.label}
-              className="eyebrow px-2 text-center text-[0.6rem] leading-tight"
+              className="eyebrow px-2 text-center text-[0.65rem] leading-tight"
               initial={{ opacity: 0, scale: 0.7 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0 }}

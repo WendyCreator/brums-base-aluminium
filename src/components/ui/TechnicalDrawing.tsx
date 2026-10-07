@@ -61,7 +61,7 @@ export function TechnicalDrawing({ kind, className = '' }: { kind: DrawingKind; 
           </g>
         )}
       </svg>
-      <p className="absolute bottom-5 left-5 font-mono text-[0.65rem] uppercase tracking-[0.2em] text-alu/70">{labels[kind]}</p>
+      <p className="absolute bottom-5 left-5 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-alu/70">{labels[kind]}</p>
     </div>
   )
 }

@@ -34,7 +34,7 @@ export function WhyUsSection() {
             >
               <span className="pt-2 font-mono text-sm text-champagne">0{i + 1}</span>
               <div>
-                <h3 className="text-[clamp(2rem,4.4vw,4.2rem)] font-extrabold uppercase leading-[0.92] tracking-[-0.035em] transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:translate-x-2">
+                <h3 className="text-[clamp(1.6rem,min(3vw,5.5vh),3rem)] font-extrabold uppercase leading-[0.95] tracking-[-0.035em] transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:translate-x-2">
                   {p.title}
                 </h3>
                 <p className="mt-4 max-w-md text-base leading-relaxed text-ink/65 sm:text-lg">{p.body}</p>

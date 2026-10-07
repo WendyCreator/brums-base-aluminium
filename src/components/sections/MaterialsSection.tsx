@@ -58,7 +58,7 @@ export function MaterialsSection() {
             <div className="relative flex aspect-[4/5] items-center justify-center overflow-hidden bg-[linear-gradient(180deg,#e2dfd7,#d3cfc5)] sm:aspect-[5/5]">
               <div className="absolute inset-x-0 bottom-0 h-[16%] bg-[linear-gradient(180deg,#c8c3b8,#bdb8ac)]" />
               <WindowElevation finish={frame} glass={glass} />
-              <div className="absolute right-5 bottom-5 left-5 flex items-end justify-between gap-4 font-mono text-[0.68rem] uppercase tracking-[0.2em] text-ink/60">
+              <div className="absolute right-5 bottom-5 left-5 flex items-end justify-between gap-4 font-mono text-[0.7rem] uppercase tracking-[0.2em] text-ink/60">
                 <AnimatePresence mode="wait" initial={false}>
                   <motion.span
                     key={`${frame.id}-${glass.id}`}

@@ -13,7 +13,7 @@ export function Logo({ className = '', onClick }: { className?: string; onClick?
       </span>
       <span className="flex flex-col leading-none">
         <span className="text-[0.95rem] font-extrabold tracking-[0.08em] uppercase">Brum&rsquo;s Base</span>
-        <span className="mt-1 font-mono text-[0.6rem] tracking-[0.42em] uppercase opacity-60">Aluminium</span>
+        <span className="mt-1 font-mono text-[0.66rem] tracking-[0.42em] uppercase opacity-60">Aluminium</span>
       </span>
     </Link>
   )
