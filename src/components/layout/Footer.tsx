@@ -1,9 +1,9 @@
 import { Link } from 'react-router-dom'
 import logoSrc from '../../assets/brand/logo-full.png'
-import { company, emailLink, mapsLink, telLink, whatsappLink } from '../../data/company'
+import { company, emailLink, mapsLink, socialNames, telLink, whatsappLink } from '../../data/company'
 import { footerSolutions, mainNav } from '../../data/content'
 import { WorkshopHours } from '../sections/ContactSection'
-import { ArrowUpRight } from '../ui/Icons'
+import { ArrowUpRight, SocialIcon } from '../ui/Icons'
 
 export function Footer() {
   const tel = telLink()
@@ -89,8 +89,9 @@ export function Footer() {
             </li>
             {company.socials.map((s) => (
               <li key={s.href}>
-                <a href={s.href} target="_blank" rel="noopener noreferrer" className="link-line">
-                  {s.label}
+                <a href={s.href} target="_blank" rel="noopener noreferrer" className="link-line inline-flex items-center gap-2.5" aria-label={`Brum's Base on ${socialNames[s.platform]}`}>
+                  <SocialIcon platform={s.platform} className="h-4 w-4" />
+                  {socialNames[s.platform]}
                 </a>
               </li>
             ))}

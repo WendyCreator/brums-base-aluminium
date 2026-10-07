@@ -35,6 +35,7 @@ export function useBusinessSchema() {
           closes: '17:00',
         },
       ],
+      ...(company.socials.length > 0 ? { sameAs: company.socials.map((s) => s.href) } : null),
       ...(siteUrl ? { url: siteUrl, logo: `${siteUrl}/apple-touch-icon.png` } : null),
     }
 

@@ -42,3 +42,41 @@ export function BrandMark({ className = 'h-7 w-7' }: IconProps) {
     </svg>
   )
 }
+
+/** Social platform glyphs (simple, single-colour, inherit currentColor). */
+export function SocialIcon({ platform, className = 'h-4 w-4' }: { platform: 'instagram' | 'facebook' | 'tiktok' | 'linkedin' | 'youtube'; className?: string }) {
+  switch (platform) {
+    case 'instagram':
+      return (
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" className={className} aria-hidden="true">
+          <rect x="3.5" y="3.5" width="17" height="17" rx="5" />
+          <circle cx="12" cy="12" r="4" />
+          <circle cx="17.1" cy="6.9" r="0.9" fill="currentColor" stroke="none" />
+        </svg>
+      )
+    case 'facebook':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+          <path d="M13.5 21v-7.5h2.6l.4-3h-3V8.8c0-.9.3-1.5 1.6-1.5h1.6V4.6c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4v2.1H7.9v3h2.6V21h3z" />
+        </svg>
+      )
+    case 'tiktok':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+          <path d="M16.6 3h-2.7v12.4a2.6 2.6 0 1 1-2.6-2.6c.3 0 .5 0 .8.1V10a5.3 5.3 0 1 0 4.5 5.3V9.2a6.6 6.6 0 0 0 3.9 1.3V7.8A3.9 3.9 0 0 1 16.6 4V3z" />
+        </svg>
+      )
+    case 'linkedin':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+          <path d="M4.5 9h3v10.5h-3zM6 4.3a1.7 1.7 0 1 1 0 3.4 1.7 1.7 0 0 1 0-3.4zM10 9h2.9v1.4c.5-.9 1.6-1.7 3.3-1.7 3 0 3.8 2 3.8 4.6v6.2h-3v-5.5c0-1.3 0-2.9-1.8-2.9s-2.1 1.4-2.1 2.8v5.6h-3z" />
+        </svg>
+      )
+    case 'youtube':
+      return (
+        <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden="true">
+          <path fillRule="evenodd" d="M21.6 8.2a2.5 2.5 0 0 0-1.8-1.8C18.2 6 12 6 12 6s-6.2 0-7.8.4A2.5 2.5 0 0 0 2.4 8.2C2 9.8 2 12 2 12s0 2.2.4 3.8a2.5 2.5 0 0 0 1.8 1.8C5.8 18 12 18 12 18s6.2 0 7.8-.4a2.5 2.5 0 0 0 1.8-1.8c.4-1.6.4-3.8.4-3.8s0-2.2-.4-3.8zM10 15V9l5.2 3z" />
+        </svg>
+      )
+  }
+}

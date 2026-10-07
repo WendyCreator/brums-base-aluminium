@@ -1,11 +1,11 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
-import { company, whatsappLink } from '../../data/company'
+import { company, socialHandle, socialNames, whatsappLink } from '../../data/company'
 import { images } from '../../data/images'
 import { Button } from '../ui/Button'
 import { WorkshopHours } from './ContactSection'
 import { Img } from '../ui/Img'
-import { WhatsAppIcon } from '../ui/Icons'
+import { SocialIcon, WhatsAppIcon } from '../ui/Icons'
 import { FadeIn, RevealLines } from '../ui/Reveal'
 
 export function CTASection() {
@@ -54,7 +54,26 @@ export function CTASection() {
               {company.city}, {company.country}
             </p>
           </div>
-          <WorkshopHours className="text-fog/90" />
+          <div className="space-y-5">
+            <WorkshopHours className="text-fog/90" />
+            {company.socials.length > 0 && (
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                {company.socials.map((s) => (
+                  <a
+                    key={s.href}
+                    href={s.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`Brum's Base on ${socialNames[s.platform]}`}
+                    className="link-line inline-flex items-center gap-2 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-fog/90"
+                  >
+                    <SocialIcon platform={s.platform} className="h-4 w-4" />
+                    {socialHandle(s)}
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
         </FadeIn>
       </div>
     </section>

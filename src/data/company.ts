@@ -47,8 +47,34 @@ export const company = {
   established: null as number | null,
   projectsCompleted: null as number | null,
 
-  /** Only add real, client-supplied profile links. */
-  socials: [] as { label: string; href: string }[],
+  /**
+   * Only add real, client-confirmed profile links — empty hides every social
+   * element (footer, contact row, search-engine data). Example:
+   *   { platform: 'instagram', href: 'https://www.instagram.com/<handle>/', handle: '@<handle>' }
+   */
+  socials: [] as Social[],
+}
+
+export type SocialPlatform = 'instagram' | 'facebook' | 'tiktok' | 'linkedin' | 'youtube'
+export type Social = { platform: SocialPlatform; href: string; /** Display text, e.g. "@brumsbase". Derived from the URL when omitted. */ handle?: string }
+
+export const socialNames: Record<SocialPlatform, string> = {
+  instagram: 'Instagram',
+  facebook: 'Facebook',
+  tiktok: 'TikTok',
+  linkedin: 'LinkedIn',
+  youtube: 'YouTube',
+}
+
+/** "@handle" for display — explicit handle first, else the last path segment of the profile URL. */
+export function socialHandle(s: Social) {
+  if (s.handle) return s.handle
+  try {
+    const seg = new URL(s.href).pathname.split('/').filter(Boolean).pop()
+    return seg ? `@${seg.replace(/^@/, '')}` : socialNames[s.platform]
+  } catch {
+    return socialNames[s.platform]
+  }
 }
 
 /** Real domain, no trailing slash — set VITE_SITE_URL at build time. Empty = no canonical/OG url tags. */

@@ -1,4 +1,4 @@
-import { company, emailLink, mapsLink, telLink, whatsappLink } from '../../data/company'
+import { company, emailLink, mapsLink, socialHandle, socialNames, telLink, whatsappLink } from '../../data/company'
 import { ArrowUpRight } from '../ui/Icons'
 import { FadeIn } from '../ui/Reveal'
 
@@ -16,6 +16,7 @@ export function ContactDetails({ tone = 'light' }: { tone?: 'light' | 'dark' }) 
   if (company.address)
     rows.push({ label: 'Workshop', value: `${company.address.line1}, ${company.address.line2}, ${company.address.city}`, href: mapsLink(), external: true })
   else rows.push({ label: 'Location', value: `${company.city}, ${company.country}`, href: null })
+  for (const s of company.socials) rows.push({ label: socialNames[s.platform], value: socialHandle(s), href: s.href, external: true })
 
   const rule = tone === 'light' ? 'rule-light' : 'rule-dark'
   const muted = tone === 'light' ? 'text-mute' : 'text-mute-2'
@@ -43,7 +44,7 @@ export function ContactDetails({ tone = 'light' }: { tone?: 'light' | 'dark' }) 
         </FadeIn>
       ))}
       <FadeIn as="li" delay={rows.length * 0.05} className={`border-b ${rule}`}>
-        <div className="grid grid-cols-[6.5rem_1fr] items-start gap-4 py-6 sm:grid-cols-[9rem_1fr]">
+        <div className="grid grid-cols-[5.5rem_minmax(0,1fr)] items-start gap-3 py-6 sm:grid-cols-[9rem_1fr] sm:gap-4">
           <span className={`eyebrow pt-1 ${muted}`}>Hours</span>
           <WorkshopHours tone={tone} />
         </div>
@@ -57,7 +58,7 @@ export function WorkshopHours({ tone = 'dark', className = '' }: { tone?: 'light
   const { daysShort, time, sunday } = company.workshopHours
   const muted = tone === 'light' ? 'text-mute' : 'text-mute-2'
   return (
-    <dl className={`grid grid-cols-[auto_1fr] gap-x-6 gap-y-1.5 text-sm font-medium tracking-tight sm:text-base ${className}`}>
+    <dl className={`grid grid-cols-[auto_1fr] gap-x-4 gap-y-1.5 text-sm sm:gap-x-6 font-medium tracking-tight sm:text-base ${className}`}>
       <dt className={`font-mono text-[0.7rem] uppercase tracking-[0.18em] ${muted} self-center`}>{daysShort}</dt>
       <dd>{time}</dd>
       <dt className={`font-mono text-[0.7rem] uppercase tracking-[0.18em] ${muted} self-center`}>Sunday</dt>
