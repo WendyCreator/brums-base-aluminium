@@ -52,6 +52,8 @@ VITE_FORM_ENDPOINT=https://formspree.io/f/xxxxxxx
 
 Set `VITE_SITE_URL` (e.g. `https://brumsbase.com`, no trailing slash) before building. Canonical and `og:url` tags are only emitted when it is set, so a build never points at the wrong domain. The OG image is `public/og.jpg`.
 
+`robots.txt` is generated on every build. `sitemap.xml` (home, About, Solutions, Projects, Contact) is generated **only when `VITE_SITE_URL` is set** — a sitemap needs absolute URLs, and the domain is never guessed. Until then `/sitemap.xml` falls through to the SPA rewrite. Project detail pages stay out of the sitemap while their content is placeholder (see `seoFiles` in `vite.config.ts`).
+
 ## Deploy
 
 `vercel.json` includes the SPA rewrite so direct links like `/projects/modern-residence` don't 404.
