@@ -1,5 +1,6 @@
 import { PageHero } from '../components/layout/PageHero'
 import { ContactDetails, ContactMap } from '../components/sections/ContactSection'
+import { QuoteAnatomy } from '../components/sections/QuoteAnatomy'
 import { QuoteForm } from '../components/sections/QuoteForm'
 import { quoteTerms } from '../data/content'
 import { FadeIn, RevealLines } from '../components/ui/Reveal'
@@ -27,6 +28,8 @@ export default function Contact() {
           </FadeIn>
         </div>
       </section>
+
+      <QuoteAnatomy />
 
       <section data-nav-tone="light" id="quote" className="scroll-mt-16 bg-bone py-24 text-ink sm:py-32 lg:py-40">
         <div className="shell grid gap-14 lg:grid-cols-12">

@@ -172,3 +172,35 @@ export const glassQuoteOption: Record<string, (typeof glassFinishOptions)[number
   frosted: 'Frosted / Obscure',
   laminated: 'Laminated',
 }
+
+/* ------------------------------------------------------------------
+   What's in a Brum's Base quote — structure and terms taken from the
+   company's own quotation template (Oct 2026). NO prices are shown:
+   quotes are per project. The terms below are standard wording from that
+   template; have the team confirm before they go live.
+   ------------------------------------------------------------------ */
+export const quoteParts = [
+  { title: 'Project information', body: 'The project, the client and the location.' },
+  { title: 'System specification', body: 'The profile, glazing and accessories chosen for the job.' },
+  { title: 'Scope of work', body: 'Exactly what is covered, from the first measurement to the final clean.' },
+  { title: 'Itemised by opening', body: 'Every opening listed by size and quantity, each with its own price.' },
+  { title: 'Summary', body: 'Fabrication, installation and delivery brought together, with the period the quote is valid for.' },
+]
+
+export const quoteScope = [
+  'Site measurement',
+  'Fabrication',
+  'Glass supply',
+  'Aluminium frame supply',
+  'Transportation',
+  'Installation',
+  'Testing and adjustment',
+  'Final cleaning',
+]
+
+export const quoteTermsList = [
+  'Prices are quoted in Nigerian naira.',
+  'A quote is valid for 30 days.',
+  'Any change in scope may affect the quotation.',
+  'Installation begins after the agreed payment.',
+]
