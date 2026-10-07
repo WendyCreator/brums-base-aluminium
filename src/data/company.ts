@@ -52,7 +52,7 @@ export const company = {
    * element (footer, contact row, search-engine data). Example:
    *   { platform: 'instagram', href: 'https://www.instagram.com/<handle>/', handle: '@<handle>' }
    */
-  socials: [] as Social[],
+  socials: [{ platform: 'instagram', href: 'https://www.instagram.com/brums_aluminum/', handle: '@brums_aluminum' }] as Social[],
 }
 
 export type SocialPlatform = 'instagram' | 'facebook' | 'tiktok' | 'linkedin' | 'youtube'

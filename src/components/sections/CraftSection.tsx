@@ -16,7 +16,7 @@ const stages: Stage[] = [
   { title: 'Fabrication', body: 'Frames are prepared for hardware, drainage and fixings before anything is assembled.', visual: { image: images.fabrication } },
   { title: 'Assembly', body: 'Corners are joined and squared so the frame holds its shape for years of use.', visual: { drawing: 'corner' } },
   { title: 'Glazing', body: 'Glass is set and sealed into the frame, with the finish protected throughout.', visual: { image: images.glass } },
-  { title: 'Installation', body: 'Frames are fixed, levelled and adjusted on site until every panel moves correctly.', visual: { image: images.sliding } },
+  { title: 'Installation', body: 'Built together. Installed with precision. Frames are fixed, levelled and adjusted on site until every panel moves correctly.', visual: { image: images.install } },
   { title: 'Finished architecture', body: 'A clean result and a responsible handover: openings that belong to the building.', visual: { image: images.whiteHouse } },
 ]
 
@@ -34,7 +34,7 @@ export function CraftSection() {
     <section id="craft" className="bg-ink py-24 text-fog sm:py-32 lg:py-40">
       <div className="shell">
         <SectionHeading index="09" eyebrow="Craftsmanship" lines={['Built with', 'purpose.']}>
-          The quality of an opening begins before installation — in how each profile is chosen, cut, prepared and assembled.
+          From raw materials to refined finish: the quality of an opening begins before installation — in how each profile is chosen, cut, prepared and assembled.
         </SectionHeading>
 
         {desktop ? (

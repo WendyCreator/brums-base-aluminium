@@ -9,6 +9,7 @@
  *   doors: { src: frontDoor, alt: '...' }
  */
 import teamPhoto from '../assets/brand/team.jpg'
+import installPhoto from '../assets/brand/install.jpg'
 
 export type SiteImage = {
   src: string
@@ -20,7 +21,9 @@ export type SiteImage = {
 const u = (id: string, alt: string, focus?: string): SiteImage => ({ src: `unsplash:${id}`, alt, focus })
 
 export const images = {
-  /** REAL photo — from the company profile (Oct 2026). Everything else here is stock. */
+  /** REAL photo — the crew fitting black aluminium frames on site; still from the company's own Instagram (@brums_aluminum, 29 Apr 2026). 640px source. */
+  install: { src: installPhoto, alt: "Brum's Base crew fitting black aluminium frames on a building under scaffolding", focus: '40% 50%' } satisfies SiteImage,
+  /** REAL photo — from the company profile (Oct 2026). Most other images here are still stock. */
   team: { src: teamPhoto, alt: "The Brum's Base team in branded hard hats and high-visibility vests in front of the company sign", focus: '50% 30%' } satisfies SiteImage,
   hero: u('1600585154340-be6161a56a0c', 'Contemporary house at dusk with floor-to-ceiling glazing glowing from within', '50% 55%'),
   terrace: u('1512917774080-9991f1c4c750', 'Sunlit terrace and pool beyond a wide glazed opening', '50% 60%'),
