@@ -1,3 +1,4 @@
+import { GallerySection } from '../components/sections/GallerySection'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import { AboutSection } from '../components/sections/AboutSection'
 import { BeforeAfterSection } from '../components/sections/BeforeAfter'
@@ -22,6 +23,7 @@ export default function Home() {
       <SolutionsSection />
       <MaterialsSection />
       <ProjectsSection />
+      <GallerySection />
       <ProcessSection />
       <MeasureSection />
       <WhyUsSection />
