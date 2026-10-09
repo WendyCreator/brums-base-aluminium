@@ -61,7 +61,7 @@ export function AboutSection({ showLink = true }: { showLink?: boolean }) {
           </div>
         </div>
 
-        <ImageReveal image={images.intro} className="mt-16 aspect-[4/5] sm:mt-24 sm:aspect-[16/9] lg:aspect-[21/9]" sizes="(min-width: 1400px) 1300px, 100vw" parallax={10} />
+        <ImageReveal image={images.realIntro} className="mt-16 aspect-[4/5] sm:mt-24 sm:aspect-[16/9] lg:aspect-[21/9]" sizes="(min-width: 1400px) 1300px, 100vw" parallax={10} />
 
         <dl className="mt-16 grid grid-cols-2 border-t rule-light sm:mt-20 lg:grid-cols-4">
           {stats.map((s, i) => (

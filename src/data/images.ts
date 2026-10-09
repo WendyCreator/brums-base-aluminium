@@ -10,6 +10,16 @@
  */
 import teamPhoto from '../assets/brand/team.jpg'
 import installPhoto from '../assets/brand/install.jpg'
+import realPhoto1 from '../assets/brand/1001624015.jpg'
+import realPhoto2 from '../assets/brand/1001624021.jpg'
+import realPhoto3 from '../assets/brand/1001624023.jpg'
+import realPhoto4 from '../assets/brand/1001624025.jpg'
+import realPhoto5 from '../assets/brand/1001624035.jpg'
+import realPhoto6 from '../assets/brand/1001624037.jpg'
+import realPhotoWA from '../assets/IMG-20261002-WA0001.jpg'
+
+export { default as heroVideo } from '../assets/brand/1001624017.mp4'
+export { default as craftVideo } from '../assets/brand/1001624031.mp4'
 
 export type SiteImage = {
   src: string
@@ -21,10 +31,24 @@ export type SiteImage = {
 const u = (id: string, alt: string, focus?: string): SiteImage => ({ src: `unsplash:${id}`, alt, focus })
 
 export const images = {
-  /** REAL photo — the crew fitting black aluminium frames on site; still from the company's own Instagram (@brums_aluminum, 29 Apr 2026). 640px source. */
+  /** REAL photo — the crew fitting black aluminium frames on site */
   install: { src: installPhoto, alt: "Brum's Base crew fitting black aluminium frames on a building under scaffolding", focus: '40% 50%' } satisfies SiteImage,
-  /** REAL photo — from the company profile (Oct 2026). Most other images here are still stock. */
+  /** REAL photo — from the company profile */
   team: { src: teamPhoto, alt: "The Brum's Base team in branded hard hats and high-visibility vests in front of the company sign", focus: '50% 30%' } satisfies SiteImage,
+  /** REAL — hero background (largest photo) */
+  realHero: { src: realPhoto6, alt: "Brum's Base aluminium installation project", focus: '50% 50%' } satisfies SiteImage,
+  /** REAL — CTA section background */
+  realCta: { src: realPhoto1, alt: "Brum's Base completed aluminium project", focus: '50% 50%' } satisfies SiteImage,
+  /** REAL — about/intro wide image */
+  realIntro: { src: realPhotoWA, alt: "Brum's Base aluminium and glass project", focus: '50% 50%' } satisfies SiteImage,
+  /** REAL — on-site installation work */
+  realInstallWork: { src: realPhoto3, alt: "Brum's Base team installing aluminium frames on site", focus: '50% 40%' } satisfies SiteImage,
+  /** REAL — project photo 1 */
+  realProject1: { src: realPhoto5, alt: "Brum's Base aluminium windows and doors project", focus: '50% 50%' } satisfies SiteImage,
+  /** REAL — project photo 2 */
+  realProject2: { src: realPhoto2, alt: "Brum's Base aluminium glazing project", focus: '50% 50%' } satisfies SiteImage,
+  /** REAL — sliding door view */
+  realSlidingView: { src: realPhoto4, alt: "View through Brum's Base aluminium sliding door system", focus: '50% 50%' } satisfies SiteImage,
   hero: u('1600585154340-be6161a56a0c', 'Contemporary house at dusk with floor-to-ceiling glazing glowing from within', '50% 55%'),
   terrace: u('1512917774080-9991f1c4c750', 'Sunlit terrace and pool beyond a wide glazed opening', '50% 60%'),
   terraceAlt: u('1602343168117-bb8ffe3e2e9f', 'Pool terrace in front of a two-storey house with large glazed openings', '50% 50%'),

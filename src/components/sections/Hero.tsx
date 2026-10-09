@@ -1,7 +1,7 @@
 import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion'
 import { useRef } from 'react'
 import { company } from '../../data/company'
-import { images } from '../../data/images'
+import { heroVideo, images } from '../../data/images'
 import { easeOutExpo } from '../../lib/motion'
 import { Button } from '../ui/Button'
 import { Img } from '../ui/Img'
@@ -18,18 +18,27 @@ export function Hero() {
 
   return (
     <section ref={ref} className="grain relative flex min-h-[100svh] flex-col overflow-hidden bg-ink text-fog">
-      {/* Background photograph: slow settle from 1.05 → 1, then parallax on scroll */}
+      {/* Background: video on capable devices, real photo fallback */}
       <motion.div className="absolute inset-0" style={reduced ? undefined : { y: imageY }}>
-        <motion.div
-          className="absolute inset-0"
-          initial={reduced ? false : { scale: 1.05 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 2.6, ease: easeOutExpo }}
-        >
-          <Img image={images.hero} priority sizes="100vw" />
-        </motion.div>
+        {reduced ? (
+          <Img image={images.realHero} priority sizes="100vw" />
+        ) : (
+          <>
+            <video
+              className="absolute inset-0 h-full w-full object-cover"
+              src={heroVideo}
+              autoPlay
+              muted
+              loop
+              playsInline
+              aria-hidden="true"
+            />
+            {/* Fallback poster shown while video loads */}
+            <Img image={images.realHero} priority sizes="100vw" className="absolute inset-0 -z-10" />
+          </>
+        )}
       </motion.div>
-      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,11,11,0.55)_0%,rgba(11,11,11,0.15)_35%,rgba(11,11,11,0.35)_62%,rgba(11,11,11,0.92)_100%)]" />
+      <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(11,11,11,0.45)_0%,rgba(11,11,11,0.1)_35%,rgba(11,11,11,0.3)_62%,rgba(11,11,11,0.88)_100%)]" />
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(11,11,11,0.55),transparent_60%)]" />
 
       <motion.div className="shell relative flex flex-1 flex-col justify-end pt-32 pb-28 sm:pb-32" style={reduced ? undefined : { y: contentY, opacity: contentOpacity }}>
