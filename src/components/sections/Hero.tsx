@@ -2,6 +2,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from 'framer-motion
 import { useRef } from 'react'
 import { company } from '../../data/company'
 import { heroVideo, images } from '../../data/images'
+import { easeOutExpo } from '../../lib/motion'
 import { Button } from '../ui/Button'
 import { Img } from '../ui/Img'
 import { ArrowDown } from '../ui/Icons'
