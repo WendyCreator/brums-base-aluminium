@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import photo1 from '../../assets/brand/1001624015.jpg'
 import photo2 from '../../assets/brand/1001624021.jpg'
 import photo3 from '../../assets/brand/1001624023.jpg'
@@ -8,7 +8,10 @@ import photo5 from '../../assets/brand/1001624035.jpg'
 import photo6 from '../../assets/brand/1001624037.jpg'
 import video1 from '../../assets/brand/1001624017.mp4'
 import video2 from '../../assets/brand/1001624031.mp4'
-import waPhoto from '../../assets/IMG-20261002-WA0001.jpg'
+import video3 from '../../assets/brand/1001624399.mp4'
+import video4 from '../../assets/brand/1001624403.mp4'
+import video5 from '../../assets/brand/1001624405.mp4'
+import video6 from '../../assets/brand/1001624407.mp4'
 import { easeOutExpo, inView } from '../../lib/motion'
 import { FadeIn } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
@@ -18,36 +21,40 @@ type VideoItem = { kind: 'video'; src: string; poster: string }
 type GalleryItem = PhotoItem | VideoItem
 
 const items: GalleryItem[] = [
-  { kind: 'photo', src: photo6, alt: "Brum's Base aluminium installation project" },
-  { kind: 'video', src: video1, poster: photo5 },
-  { kind: 'photo', src: photo3, alt: "Brum's Base team installing aluminium frames on site" },
-  { kind: 'photo', src: photo1, alt: "Brum's Base completed aluminium project" },
-  { kind: 'photo', src: waPhoto, alt: "Brum's Base aluminium and glass project" },
-  { kind: 'video', src: video2, poster: photo3 },
-  { kind: 'photo', src: photo4, alt: "View through Brum's Base aluminium sliding door system" },
-  { kind: 'photo', src: photo2, alt: "Brum's Base aluminium glazing project" },
-  { kind: 'photo', src: photo5, alt: "Brum's Base aluminium windows and doors project" },
+  { kind: 'photo',  src: photo6,  alt: "Brum's Base aluminium installation project" },
+  { kind: 'video',  src: video1,  poster: photo5 },
+  { kind: 'photo',  src: photo3,  alt: "Brum's Base team installing aluminium frames on site" },
+  { kind: 'video',  src: video3,  poster: photo1 },
+  { kind: 'photo',  src: photo1,  alt: "Brum's Base completed aluminium project" },
+  { kind: 'video',  src: video2,  poster: photo3 },
+  { kind: 'photo',  src: photo4,  alt: "View through Brum's Base aluminium sliding door system" },
+  { kind: 'video',  src: video4,  poster: photo2 },
+  { kind: 'photo',  src: photo2,  alt: "Brum's Base aluminium glazing project" },
+  { kind: 'video',  src: video5,  poster: photo4 },
+  { kind: 'photo',  src: photo5,  alt: "Brum's Base aluminium windows and doors project" },
+  { kind: 'video',  src: video6,  poster: photo6 },
 ]
 
 /** Assign each item a span so the grid feels editorial, not uniform */
 const spans = [
-  'md:col-span-2 md:row-span-2', // photo6 — large anchor
-  'md:col-span-1 md:row-span-1', // video1
-  'md:col-span-1 md:row-span-1', // photo3
-  'md:col-span-1 md:row-span-2', // photo1 — tall
-  'md:col-span-1 md:row-span-1', // waPhoto
-  'md:col-span-2 md:row-span-1', // video2 — wide
-  'md:col-span-1 md:row-span-1', // photo4
-  'md:col-span-1 md:row-span-1', // photo2
-  'md:col-span-1 md:row-span-1', // photo5
+  'md:col-span-2 md:row-span-2', // large anchor
+  'md:col-span-1 md:row-span-1',
+  'md:col-span-1 md:row-span-1',
+  'md:col-span-1 md:row-span-2', // tall
+  'md:col-span-1 md:row-span-1',
+  'md:col-span-2 md:row-span-1', // wide
+  'md:col-span-1 md:row-span-1',
+  'md:col-span-1 md:row-span-1',
+  'md:col-span-2 md:row-span-1', // wide
+  'md:col-span-1 md:row-span-1',
+  'md:col-span-1 md:row-span-2', // tall
+  'md:col-span-1 md:row-span-1',
 ]
 
 function VideoTile({ src, poster }: { src: string; poster: string }) {
-  const ref = useRef<HTMLVideoElement>(null)
   return (
     <>
       <video
-        ref={ref}
         src={src}
         poster={poster}
         autoPlay
@@ -121,7 +128,7 @@ export function GallerySection() {
             A look at Brum&rsquo;s Base projects and installations — from the workshop floor to the finished opening.
           </SectionHeading>
 
-          <div className="mt-14 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-[repeat(4,18vw)] sm:mt-20 lg:gap-4">
+          <div className="mt-14 grid grid-cols-1 gap-3 sm:grid-cols-2 md:grid-cols-3 md:grid-rows-[repeat(7,16vw)] sm:mt-20 lg:gap-4">
             {items.map((item, i) => (
               <FadeIn
                 key={i}
@@ -146,7 +153,6 @@ export function GallerySection() {
                   ) : (
                     <VideoTile src={item.src} poster={item.poster} />
                   )}
-                  {/* Hover overlay */}
                   <div className="absolute inset-0 bg-ink/0 transition-colors duration-500 hover:bg-ink/20" />
                 </motion.div>
               </FadeIn>
@@ -155,7 +161,7 @@ export function GallerySection() {
 
           <FadeIn className="mt-8 border-t rule-dark pt-6">
             <p className="font-mono text-[0.7rem] uppercase tracking-[0.18em] text-mute-2">
-              Real project photography · Brum&rsquo;s Base Aluminium, Port Harcourt
+              Real project photography &amp; video · Brum&rsquo;s Base Aluminium, Port Harcourt
             </p>
           </FadeIn>
         </div>
