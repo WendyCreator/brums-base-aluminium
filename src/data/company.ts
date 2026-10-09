@@ -16,10 +16,10 @@ export const company = {
   phone: '0702 657 6066' as string | null,
   /** Country code + number, digits only — used for tel: links */
   phoneIntl: '2347026576066' as string | null,
-  /** WhatsApp number — digits only, used for wa.me links. Set when confirmed by the team. */
-  whatsapp: null as string | null,
+  /** WhatsApp number supplied by the team (Oct 2026). Digits only — used for wa.me links */
+  whatsapp: '2349162624051' as string | null,
   /** Display format. Shown sparingly — the UI prefers a "WhatsApp" label over the raw number. */
-  whatsappDisplay: null as string | null,
+  whatsappDisplay: '+234 916 262 4051' as string | null,
   whatsappMessage: "Hello, I'd like to enquire about an aluminium project with Brum's Base Aluminium.",
 
   /**

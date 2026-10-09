@@ -1,6 +1,6 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { useState } from 'react'
-import { craftVideo, images, type SiteImage } from '../../data/images'
+import { images, type SiteImage } from '../../data/images'
 import { useDesktop } from '../../hooks/useMediaQuery'
 import { easeInOutQuart } from '../../lib/motion'
 import { Img } from '../ui/Img'
@@ -8,37 +8,20 @@ import { FadeIn } from '../ui/Reveal'
 import { SectionHeading } from '../ui/SectionHeading'
 import { TechnicalDrawing, type DrawingKind } from '../ui/TechnicalDrawing'
 
-type Stage = { title: string; body: string; visual: { drawing: DrawingKind } | { image: SiteImage } | { video: string; poster: SiteImage } }
+type Stage = { title: string; body: string; visual: { drawing: DrawingKind } | { image: SiteImage } }
 
 const stages: Stage[] = [
   { title: 'Aluminium profiles', body: 'Profiles and accessories are selected for their part in the complete system, from frame to closure.', visual: { drawing: 'profile' } },
   { title: 'Cutting', body: 'Lengths are cut to the measured opening, with clean mitres where frames meet.', visual: { drawing: 'mitre' } },
-  { title: 'Fabrication', body: 'Frames are prepared for hardware, drainage and fixings before anything is assembled.', visual: { image: images.realInstallWork } },
+  { title: 'Fabrication', body: 'Frames are prepared for hardware, drainage and fixings before anything is assembled.', visual: { image: images.fabrication } },
   { title: 'Assembly', body: 'Corners are joined and squared so the frame holds its shape for years of use.', visual: { drawing: 'corner' } },
   { title: 'Glazing', body: 'Glass is set and sealed into the frame, with the finish protected throughout.', visual: { image: images.glass } },
-  { title: 'Installation', body: 'Built together. Installed with precision. Frames are fixed, levelled and adjusted on site until every panel moves correctly.', visual: { video: craftVideo, poster: images.install } },
-  { title: 'Finished architecture', body: 'A clean result and a responsible handover: openings that belong to the building.', visual: { image: images.realProject1 } },
+  { title: 'Installation', body: 'Built together. Installed with precision. Frames are fixed, levelled and adjusted on site until every panel moves correctly.', visual: { image: images.install } },
+  { title: 'Finished architecture', body: 'A clean result and a responsible handover: openings that belong to the building.', visual: { image: images.whiteHouse } },
 ]
 
 function StageVisual({ stage }: { stage: Stage }) {
-  if ('drawing' in stage.visual) return <TechnicalDrawing kind={stage.visual.drawing} />
-  if ('video' in stage.visual) {
-    return (
-      <>
-        <video
-          className="absolute inset-0 h-full w-full object-cover"
-          src={stage.visual.video}
-          autoPlay
-          muted
-          loop
-          playsInline
-          aria-hidden="true"
-        />
-        <Img image={stage.visual.poster} sizes="(min-width: 1024px) 50vw, 100vw" className="absolute inset-0 -z-10" />
-      </>
-    )
-  }
-  return <Img image={stage.visual.image} sizes="(min-width: 1024px) 50vw, 100vw" />
+  return 'drawing' in stage.visual ? <TechnicalDrawing kind={stage.visual.drawing} /> : <Img image={stage.visual.image} sizes="(min-width: 1024px) 50vw, 100vw" />
 }
 
 /** Fabrication story. Desktop: sticky visual that changes with the scrolled step. */

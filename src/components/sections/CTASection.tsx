@@ -18,7 +18,7 @@ export function CTASection() {
   return (
     <section ref={ref} className="grain relative flex min-h-[92svh] items-center overflow-hidden bg-ink text-fog">
       <motion.div className="absolute inset-0" style={reduced ? undefined : { scale }}>
-        <Img image={images.realCta} sizes="100vw" />
+        <Img image={images.cta} sizes="100vw" />
       </motion.div>
       <div className="absolute inset-0 bg-[radial-gradient(80%_80%_at_30%_60%,rgba(11,11,11,0.55),rgba(11,11,11,0.88))]" />
 

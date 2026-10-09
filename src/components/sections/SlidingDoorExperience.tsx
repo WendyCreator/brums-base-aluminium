@@ -21,7 +21,7 @@ type Props = {
 export function SlidingDoorExperience({
   id = 'sliding-experience',
   index = '02',
-  view = images.realSlidingView,
+  view = images.terrace,
   cta = { label: 'Explore sliding door systems', to: '/solutions#sliding-systems' },
 }: Props) {
   return (
