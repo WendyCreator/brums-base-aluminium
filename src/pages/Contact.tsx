@@ -1,3 +1,4 @@
+import photo2 from '../assets/brand/1001624021.jpg'
 import { PageHero } from '../components/layout/PageHero'
 import { ContactDetails, ContactMap } from '../components/sections/ContactSection'
 import { QuoteAnatomy } from '../components/sections/QuoteAnatomy'
@@ -6,6 +7,8 @@ import { quoteTerms } from '../data/content'
 import { FadeIn, RevealLines } from '../components/ui/Reveal'
 import { Eyebrow } from '../components/ui/SectionHeading'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+
+const heroImage = { src: photo2, alt: "Brum's Base aluminium glazing project", focus: '50% 50%' }
 
 export default function Contact() {
   useDocumentMeta({
@@ -16,7 +19,7 @@ export default function Contact() {
 
   return (
     <>
-      <PageHero eyebrow="Contact" lines={["Let's talk", 'about your', 'project.']} intro="Call, message on WhatsApp, or send your project details below. Site measurements are free, and every project is quoted individually." />
+      <PageHero eyebrow="Contact" lines={["Let's talk", 'about your', 'project.']} intro="Call us, send your project details below, or message on WhatsApp. Site measurements are free and every project is quoted individually." image={heroImage} />
 
       <section className="bg-ink pb-24 text-fog sm:pb-32">
         <div className="shell grid gap-12 lg:grid-cols-12">

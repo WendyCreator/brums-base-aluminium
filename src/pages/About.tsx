@@ -1,3 +1,4 @@
+import photo6 from '../assets/brand/1001624037.jpg'
 import { PageHero } from '../components/layout/PageHero'
 import { AboutSection } from '../components/sections/AboutSection'
 import { CraftSection } from '../components/sections/CraftSection'
@@ -7,8 +8,9 @@ import { TeamSection } from '../components/sections/TeamSection'
 import { WhyUsSection } from '../components/sections/WhyUsSection'
 import { FadeIn, RevealLines } from '../components/ui/Reveal'
 import { coreValues } from '../data/content'
-import { images } from '../data/images'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+
+const heroImage = { src: photo6, alt: "Brum's Base aluminium installation project", focus: '50% 50%' }
 
 export default function About() {
   useDocumentMeta({
@@ -20,10 +22,10 @@ export default function About() {
   return (
     <>
       <PageHero
-        eyebrow="About Brum’s Base"
+        eyebrow="About Brum's Base"
         lines={['A material', 'decision,', 'made well.']}
         intro="Aluminium windows, doors and architectural glazing — measured with care, fabricated in Port Harcourt and installed to fit the building they belong to."
-        image={images.interior}
+        image={heroImage}
       />
 
       <AboutSection showLink={false} />
@@ -32,7 +34,7 @@ export default function About() {
       <section className="bg-ink py-28 text-fog sm:py-40">
         <div className="shell">
           <p className="eyebrow text-champagne-2">Our standard</p>
-          <RevealLines lines={['Quality is', 'everyone’s', 'responsibility.']} className="display-lg mt-8" />
+          <RevealLines lines={['Quality is', 'everyone\u2019s', 'responsibility.']} className="display-lg mt-8" />
           <FadeIn className="mt-12 grid gap-8 border-t rule-dark pt-10 md:grid-cols-2">
             <p className="lede text-alu">
               From the first discussion through final fit, the focus stays on a clean result and a responsible handover.

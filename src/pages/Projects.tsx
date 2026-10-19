@@ -1,13 +1,15 @@
+import photo1 from '../assets/brand/1001624015.jpg'
 import { AnimatePresence, LayoutGroup, motion } from 'framer-motion'
 import { useState } from 'react'
 import { PageHero } from '../components/layout/PageHero'
 import { CTASection } from '../components/sections/CTASection'
 import { ProjectCard } from '../components/sections/ProjectCard'
 import { RepresentativeNote } from '../components/sections/ProjectsSection'
-import { images } from '../data/images'
 import { projects, type ProjectCategory } from '../data/projects'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
 import { easeOutExpo } from '../lib/motion'
+
+const heroImage = { src: photo1, alt: "Brum's Base completed aluminium project", focus: '50% 50%' }
 
 type Filter = 'All' | ProjectCategory
 const filters: Filter[] = ['All', 'Residential', 'Commercial', 'Renovation']
@@ -23,7 +25,12 @@ export default function Projects() {
 
   return (
     <>
-      <PageHero eyebrow="Selected projects" lines={['What we', 'build.']} intro="Openings, facades and complete glazing packages across residential, commercial and renovation work." image={images.pavilion} />
+      <PageHero
+        eyebrow="Selected projects"
+        lines={['What we', 'build.']}
+        intro="Openings, facades and complete glazing packages across residential, commercial and renovation work."
+        image={heroImage}
+      />
 
       <section data-nav-tone="light" className="bg-bone py-16 text-ink sm:py-24">
         <div className="shell">

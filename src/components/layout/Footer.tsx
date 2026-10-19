@@ -111,7 +111,7 @@ export function Footer() {
       </div>
 
       <div className="shell mt-12 flex flex-col gap-3 border-t rule-dark py-8 pr-20 sm:pr-24 font-mono text-[0.7rem] uppercase tracking-[0.18em] text-mute-2 sm:flex-row sm:items-center sm:justify-between">
-        <p>© 2026 Brum&rsquo;s Base Aluminium. All rights reserved.</p>
+        <p>© {new Date().getFullYear()} Brum&rsquo;s Base Aluminium. All rights reserved.</p>
         <button type="button" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="link-line self-start sm:self-auto">
           Back to top ↑
         </button>

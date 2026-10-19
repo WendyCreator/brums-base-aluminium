@@ -1,3 +1,4 @@
+import photo3 from '../assets/brand/1001624023.jpg'
 import { Fragment } from 'react'
 import { PageHero } from '../components/layout/PageHero'
 import { CTASection } from '../components/sections/CTASection'
@@ -9,6 +10,8 @@ import { FadeIn, RevealLines } from '../components/ui/Reveal'
 import { images } from '../data/images'
 import { solutions, type Solution } from '../data/solutions'
 import { useDocumentMeta } from '../hooks/useDocumentMeta'
+
+const heroImage = { src: photo3, alt: "Brum's Base team installing aluminium frames on site", focus: '50% 40%' }
 
 export default function Solutions() {
   useDocumentMeta({
@@ -23,7 +26,7 @@ export default function Solutions() {
         eyebrow="Our solutions"
         lines={['Systems for', 'every opening.']}
         intro="Six families of aluminium and glass systems — each one fabricated to the measured opening rather than a standard size."
-        image={images.sliding}
+        image={heroImage}
       >
         <FadeIn immediate delay={0.9} className="mt-10">
           <nav aria-label="Solutions" className="flex flex-wrap gap-2">
